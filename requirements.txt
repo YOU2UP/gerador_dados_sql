@@ -1,0 +1,4 @@
+pandas==1.4.4
+SQLAlchemy==1.4.40
+pymysql==1.0.3
+faker==20.0.3

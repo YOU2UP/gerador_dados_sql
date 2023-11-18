@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Session
 
 def conect():
     BD_USER = "root"
@@ -9,5 +10,9 @@ def conect():
 
     SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{BD_USER}:{BD_PASS}@{BD_HOST}:{BD_PORT}/{DATABASE}"
     engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=False)
+  
+    Session = sessionmaker(bind=engine)
+
+    db = Session()
     
-    return engine
+    return engine, db

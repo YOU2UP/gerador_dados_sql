@@ -18,42 +18,40 @@ from controller import (
 )
 
 def start():
-    engine = conection_db.conect()
+    engine, db = conection_db.conect()
 
     locais = local_treino_usuario_service.run()
     local_db = controller.LocalTreinoUsuario()
-    local_db.insert_data(engine, locais)
+    # local_db.insert_data(engine, locais)
 
     usuarios = user_service.run()
     usuario_db = controller.Usuario()
-    usuario_db.insert_data(engine, usuarios)
+    # usuario_db.insert_data(engine, usuarios)
 
     treinos = treino_service.run()
     treino_db = controller.Treino()
-    treino_db.insert_data(engine, treinos)
+    # treino_db.insert_data(engine, treinos)
 
     avaliacoes = avaliacao_service.run()
     avaliacao_db = controller.Avaliacao()
-    avaliacao_db.insert_data(engine, avaliacoes)
+    # avaliacao_db.insert_data(engine, avaliacoes)
 
     fotos = foto_service.run()
     foto_db = controller.Foto()
-    foto_db.insert_data(engine, fotos)
+    # foto_db.insert_data(engine, fotos)
 
     fotos_perfil = foto_perfil_service.run()
     foto_perfil_db = controller.FotoPerfil()
-    foto_perfil_db.insert_data(engine, fotos_perfil)
-
-    matches = match_service.run()
-    match_db = controller.TbMatch()
-    match_db.insert_data(engine, matches)
+    # foto_perfil_db.insert_data(engine, fotos_perfil)
     
     notificacoes = notificacao_service.run()
     notificacao_db = controller.Notificacao()
-    notificacao_db.insert_data(engine, notificacoes)
+    # notificacao_db.insert_data(engine, notificacoes)
 
     treinos_usuarios = treino_has_usuario_service.run()
     treino_usuario_db = controller.TreinoHasUsuario()
-    treino_usuario_db.insert_data(engine, treinos_usuarios)
+    # treino_usuario_db.insert_data(engine, treinos_usuarios)
+
+    usuario_db.update_user_id_perfil(db)
 
 start()

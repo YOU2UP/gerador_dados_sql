@@ -81,7 +81,7 @@ def gerar_metas():
 def gerar_senhas():
     senhas = []
     for _ in range(50):
-        senhas.append("senha123")
+        senhas.append("$2a$10$0/TKTGxdREbWaWjWYhwf6e9P1fPOAMMNqEnZgOG95jnSkHSfkkIrC")
     return senhas
 
 def gerar_locais():

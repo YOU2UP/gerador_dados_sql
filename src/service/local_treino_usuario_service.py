@@ -38,7 +38,7 @@ def fill_df(df:DataFrame, endereco):
 
 def run():
     enderecos = mount_enderecos()
-    df = pd.DataFrame(columns=["bairro", "cidade", "is_academia", "nome", "numero", "rua", "uf"])
+    df = pd.DataFrame(columns=["bairro", "cidade", "is_academia", "nome", "rua", "numero", "uf"])
     make_objects(enderecos, df)
     print(df)
     return df

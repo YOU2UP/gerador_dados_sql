@@ -30,4 +30,4 @@ def run():
 
     df = generate_data_frame(realizado, periodo)
     print(df)
-    return df
+    return df, realizado

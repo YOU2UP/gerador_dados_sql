@@ -35,6 +35,16 @@ class Foto():
     def insert_data(self, engine, df:DataFrame):
         df.to_sql("foto", con=engine, index=False, if_exists='append')
 
+    def update_varchar(self, db:Session):
+        query = "alter table foto modify column url varchar(1000);"
+        db.execute(query)
+        db.commit()
+
 class FotoPerfil():
     def insert_data(self, engine, df:DataFrame):
         df.to_sql("foto_perfil", con=engine, index=False, if_exists='append')
+
+    def update_varchar(self, db:Session):
+        query = "alter table foto_perfil modify column url varchar(1000);"
+        db.execute(query)
+        db.commit()

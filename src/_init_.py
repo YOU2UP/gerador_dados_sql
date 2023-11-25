@@ -21,26 +21,28 @@ def start():
 
     locais = local_treino_usuario_service.run()
     local_db = controller.LocalTreinoUsuario()
-    local_db.insert_data(engine, locais)
+    # local_db.insert_data(engine, locais)
 
     usuarios = user_service.run()
     usuario_db = controller.Usuario()
-    usuario_db.insert_data(engine, usuarios)
+    # usuario_db.insert_data(engine, usuarios)
 
     treinos, realizados = treino_service.run()
     treino_db = controller.Treino()
-    treino_db.insert_data(engine, treinos)
+    # treino_db.insert_data(engine, treinos)
 
     avaliacoes = avaliacao_service.run(realizados)
     avaliacao_db = controller.Avaliacao()
-    avaliacao_db.insert_data(engine, avaliacoes)
+    # avaliacao_db.insert_data(engine, avaliacoes)
 
     fotos = foto_service.run()
     foto_db = controller.Foto()
+    foto_db.update_varchar(db)
     foto_db.insert_data(engine, fotos)
 
     fotos_perfil = foto_perfil_service.run()
     foto_perfil_db = controller.FotoPerfil()
+    foto_perfil_db.update_varchar(db)
     foto_perfil_db.insert_data(engine, fotos_perfil)
     
     notificacoes = notificacao_service.run()
